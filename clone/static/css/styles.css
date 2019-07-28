@@ -1,0 +1,23 @@
+body{
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #262626;
+}
+
+.core-sprite{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMqFUQvw9DwO429H4Fs1R13vG_IDzlA5LU1P9lDRtCNXZIp2C_8Q");
+  background-size: 405px 370px;
+  background-repeat: no-repeat;
+}
+.navbar-brand{
+  background-position: -176px 0;
+  height: 35px;
+  width: 176px;
+   
+}
+.hide-text{
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
