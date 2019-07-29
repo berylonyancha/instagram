@@ -33,4 +33,19 @@ class Image(models.Model):
           result=cls.objects.filter(user__username__icontains=term)
           return result
 
+class Profile(models.Model):
+    profile_photo= models.ImageField(upload_to='profile',blank=True)
+    bio=models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.bio
+
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        profile=Profile.objects.all().delete()
+        return profile
+
+  
