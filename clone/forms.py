@@ -1,5 +1,6 @@
 from django import forms
 from .models import Profile,Image,Comments
+from django.forms import ModelForm,Textarea
 
 class NewImage(forms.ModelForm):
     class Meta:
@@ -9,7 +10,7 @@ class NewImage(forms.ModelForm):
 class UpdateProfile(forms.ModelForm):
      class Meta:
          model = Profile
-
+         exclude =['userId']
 class NewComment(forms.ModelForm):
     class Meta:
         model=Comments
