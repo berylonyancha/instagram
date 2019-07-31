@@ -46,3 +46,28 @@ def profile(request):
             form=UpdateProfile()
     return render(request, 'profile/new.html',locals())
 
+@login_required(login_url='/accounts/login')
+def showprofile(request,username):
+     profile = User.objects.get(username=username)
+     print(profile)
+     try:
+        profile_details = Profile.get_by_id(profile.id)
+        print(profile_details)
+     except:
+        profile_details = Profile.filter_by_id(profile.id)
+        print(profile_details)
+     images = Image.profile_images(profile.id)
+     print(images)
+     return render(request, 'profile/profile.html', {'profile':profile, 'profile_details':profile_details, 'images':images})
+
+def search(request):
+    profiles = User.objects.all()
+
+    if 'username' in request.GET and request.GET['username']:
+        search_term = request.GET.get('username')
+        results = User.objects.filter(username__icontains=search_term)
+        print(results)
+
+        return render(request,'search.html',locals())
+    return redirect('homePage')
+
